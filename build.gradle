@@ -1,0 +1,48 @@
+plugins {
+  id 'java'
+  id 'org.springframework.boot' version '3.0.5'
+  id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'springPrac'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  // spring boot
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+
+  // JUnit
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+  // Gradle 5.x 미만
+  // implementation 'org.projectlombok:lombok'
+  // Gradle 5.x 이상
+  compileOnly 'org.projectlombok:lombok'
+  annotationProcessor 'org.projectlombok:lombok'
+
+
+  // JDBC 설정
+  implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+  // JPA 설정
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+  // h2 database
+  runtimeOnly 'com.h2database:h2'
+
+  // thymeleaf
+  implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+  // spring session jdbc
+  implementation 'org.springframework.session:spring-session-jdbc'
+
+}
+
+tasks.named('test') {
+  useJUnitPlatform()
+}
